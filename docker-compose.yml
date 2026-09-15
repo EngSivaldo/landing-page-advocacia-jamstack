@@ -1,0 +1,9 @@
+services:
+  web:
+    build: .
+    container_name: container-node
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    command: node --watch server.js
