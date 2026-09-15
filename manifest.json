@@ -3,7 +3,7 @@
   "name": "Dr. Lucas Baía - Advocacia Especializada",
   "icons": [
     {
-      "src": "assets/images/scale-balanced.svg",
+      "src": "/assets/images/scale-balanced.svg",
       "type": "image/svg+xml",
       "sizes": "512x512"
     }
