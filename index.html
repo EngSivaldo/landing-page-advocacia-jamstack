@@ -1,55 +1,45 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
 <head>
-    
+    <!-- 1. Configurações essenciais de charset e viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Lucas Baía de Almeida | Advocacia & Consultoria Jurídica</title>
-    
-    <!-- SEO & Meta Tags -->
+
+    <!-- 2. SEO e Identidade Meta -->
     <meta name="description" content="Escritório de advocacia especializado em Direito Civil, Empresarial e Litígios Estratégicos. Atendimento personalizado presencial e online.">
     <meta name="keywords" content="Advogado, Direito Civil, Direito Empresarial, OAB SP, Consultoria Jurídica, Lucas Baía de Almeida">
     <meta name="author" content="Dr. Lucas Baía de Almeida">
 
-    <!-- Social Media / WhatsApp Preview (Open Graph) -->
-    <meta property="og:title" content="Dr. Lucas Baía de Almeida | Advocacia Especializada">
-    <meta property="og:description" content="Defesa jurídica estratégica, pautada pela ética e transparência. Agende sua consulta.">
-    <meta property="og:type" content="website">
-    <!-- Open Graph / WhatsApp / LinkedIn -->
+    <!-- 3. Social Media / Open Graph (WhatsApp, LinkedIn, Facebook) -->
     <meta property="og:title" content="Dr. Lucas Baía de Almeida | Advocacia Especializada">
     <meta property="og:description" content="Defesa jurídica estratégica, pautada pela ética e transparência. Agende sua consulta.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://landing-page-advocacia-jamstack.vercel.app/assets/og-image.png">
 
-<!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-
+    <!-- 4. PWA e Ícones -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0a192f">
 
-    <!-- Sentry Error Tracking (Observabilidade) -->
+    <!-- 5. Observabilidade e Monitoramento (Sentry) -->
     <script src="https://browser.sentry-cdn.com/7.100.0/bundle.min.js" crossorigin="anonymous"></script>
     <script>
-    if (typeof Sentry !== 'undefined') {
-        Sentry.init({
-        dsn: "https://examplePublicKey@o0.ingest.sentry.io/0", // Subtitua pela sua DSN se criar conta no Sentry
-        environment: "production",
-        tracesSampleRate: 0.1,
-        // Garante conformidade com LGPD (nao envia dados pessoais de inputs)
-        beforeSend(event) {
-            if (event.request && event.request.data) {
-            delete event.request.data;
-            }
-            return event;
+        if (typeof Sentry !== 'undefined') {
+            Sentry.init({
+                dsn: "https://examplePublicKey@o0.ingest.sentry.io/0",
+                environment: "production",
+                tracesSampleRate: 0.1,
+                beforeSend(event) {
+                    if (event.request && event.request.data) {
+                        delete event.request.data;
+                    }
+                    return event;
+                }
+            });
         }
-        });
-    }
     </script>
 
-    <!-- Biblioteca de Ícones (Font Awesome) -->
+    <!-- 6. Estilos e Recurso Visual (CDNs e Arquivo Local) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- CSS Local (Sempre após as CDNs externas) -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
