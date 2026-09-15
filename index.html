@@ -16,6 +16,9 @@
     <meta property="og:description" content="Defesa jurídica estratégica, pautada pela ética e transparência. Agende sua consulta.">
     <meta property="og:type" content="website">
 
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a192f">
+
     <!-- Sentry Error Tracking (Observabilidade) -->
     <script src="https://browser.sentry-cdn.com/7.100.0/bundle.min.js" crossorigin="anonymous"></script>
     <script>
@@ -342,5 +345,14 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+            .catch(err => console.error('Erro ao registrar Service Worker:', err));
+        });
+    }
+    </script>
+
 </body>
 </html>
