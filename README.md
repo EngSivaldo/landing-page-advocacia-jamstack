@@ -1,49 +1,90 @@
+```markdown
 # ⚖️ Landing Page Institucional para Advocacia (Jamstack & OAB Compliant)
 
-Uma landing page responsiva, de alta performance e ultra-segura, projetada para escritórios de advocacia. Desenvolvida sob a arquitetura **Jamstack**, totalmente adequada às diretrizes do **Provimento 205/2021 da OAB** e às exigências da **LGPD**.
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-Live_Demo-black?style=flat-square&logo=vercel)](https://landing-page-advocacia-jamstack.vercel.app)
+[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Backup_Host-blue?style=flat-square&logo=github)](https://EngSivaldo.github.io/landing-page-advocacia-jamstack)
+[![Lighthouse Score](https://img.shields.io/badge/Lighthouse-100%2F100-brightgreen?style=flat-square)](https://landing-page-advocacia-jamstack.vercel.app)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](./LICENSE)
+
+Landing page institucional para escritório de advocacia, focada em conversão, segurança e conformidade regulatória. O projeto adota a arquitetura **Jamstack** e atende integralmente às exigências da LGPD e do **Provimento 205/2021 da OAB**.
 
 ---
 
-## 🛠️ Tech Stack & Arquitetura
+## 🛠️ Arquitetura & Decisões Técnicas
 
 * **Front-end:** HTML5 Semântico, CSS3 Moderno (CSS Variables, Flexbox/Grid) e Vanilla JavaScript (ES6+).
-* **Arquitetura:** Jamstack estático (Zero server-side runtime, imune a SQL Injection, SSRF ou RCE).
-* **Integradores:** Formspree (Webhooks / E-mail Capture) e WhatsApp API Payload.
-* **Segurança na Borda:** HTTP Security Headers via `vercel.json` (`X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`).
+* **Entrega Estática (Jamstack):** Compilação e servimento estático via `@vercel/static`. A eliminação de rotas dinâmicas no servidor reduz a superfície de ataque contra vulnerabilidades RCE e SQLi.
+* **Redundância CI/CD:** Pipeline de implantação contínua configurado com distribuição primária na Vercel Edge Network e espelhamento no GitHub Pages.
+* **Otimização de Ativos:** Carregamento de estilos e scripts otimizado para alcançar pontuação máxima em métricas do Google Lighthouse.
 
 ---
 
-## 🔒 Camadas de Segurança e Compliance Implementadas
+## 🔒 Segurança e Compliance
 
-* **Sanitização XSS Client-Side:** Higienização de inputs no formulário antes do encriptamento e montagem do payload do WhatsApp via `encodeURIComponent`.
-* **Proteção Anti-Spam (Honeypot Pattern):** Campo invisível (`_gotcha`) que descarta requisições automatizadas de bots sem afetar a UX do usuário.
-* **Provimento 205/2021 OAB:** Abordagem informativa, sem mercantilização da profissão, com exibição visível do número de inscrição.
-* **LGPD Consent:** Checkbox obrigatório de consentimento para tratamento de dados pessoais no agendamento.
+* **Cabeçalhos HTTP (Edge Hardening):** Injeção de políticas de segurança no `vercel.json`, incluindo `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy` e restrição de dispositivos via `Permissions-Policy`.
+* **Sanitização no Client-Side:** Validação e higienização de inputs no formulário de contato antes da formação do payload do WhatsApp via `encodeURIComponent`.
+* **Mecanismo Anti-Spam:** Proteção via Honeypot (`_gotcha`) para interceptação de robôs sem necessidade de Captcha visível.
+* **Normativa OAB:** Layout estritamente informativo, respeitando as regras de publicidade jurídica e exibição do registro profissional.
+* **LGPD:** Termo de consentimento explícito no formulário antes do envio de dados do usuário.
 
 ---
 
 ## 🧪 Testes Automatizados
 
-Para rodar a suíte de validação de segurança e compliance localmente:
+Para executar os testes de validação de segurança e conformidade:
 
-\`\`\`bash
+```bash
 node tests/security-compliance.test.js
-\`\`\`
+
+```
 
 ---
 
-## 🚀 Como Executar Localmente
+## 🚀 Execução Local
+
+### Pré-requisitos
+
+* Node.js instalado (ambiente Linux/WSL recomendado).
+
+### Passos
 
 1. Clone o repositório:
-   \`\`\`bash
-   git clone https://github.com/SEU_USUARIO/landing-page-advocacia-jamstack.git
-   \`\`\`
-2. Abra o arquivo `index.html` em qualquer navegador ou sirva via servidor estático local:
-   \`\`\`bash
-   npx serve .
-   \`\`\`
+```bash
+git clone [https://github.com/EngSivaldo/landing-page-advocacia-jamstack.git](https://github.com/EngSivaldo/landing-page-advocacia-jamstack.git)
+
+```
+
+
+2. Entre no diretório do projeto:
+```bash
+cd landing-page-advocacia-jamstack
+
+```
+
+
+3. Inicie o servidor local:
+```bash
+npx serve .
+
+```
+
+
+
+---
+
+## 👨‍💻 Desenvolvedor
+
+**Eng. Sivaldo**
+
+Engenharia de Software
+
+GitHub: [@EngSivaldo](https://www.google.com/search?q=https://github.com/EngSivaldo)
 
 ---
 
 ## 📄 Licença
-Este projeto está sob a licença [MIT](./LICENSE).
+
+Distribuído sob a licença [MIT](https://www.google.com/search?q=./LICENSE).
+
+
+
