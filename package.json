@@ -1,0 +1,14 @@
+{
+  "name": "landing-page-advocacia-jamstack",
+  "version": "1.0.0",
+  "description": "Landing page para advocacia - Dr. Lucas Baía de Almeida",
+  "main": "index.html",
+  "homepage": "https://EngSivaldo.github.io/landing-page-advocacia-jamstack",
+  "scripts": {
+    "predeploy": "git push origin main",
+    "deploy": "gh-pages -d ."
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
