@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Lucas Baía de Almeida | Advocacia & Consultoria Jurídica</title>
@@ -14,6 +15,25 @@
     <meta property="og:title" content="Dr. Lucas Baía de Almeida | Advocacia Especializada">
     <meta property="og:description" content="Defesa jurídica estratégica, pautada pela ética e transparência. Agende sua consulta.">
     <meta property="og:type" content="website">
+
+    <!-- Sentry Error Tracking (Observabilidade) -->
+    <script src="https://browser.sentry-cdn.com/7.100.0/bundle.min.js" crossorigin="anonymous"></script>
+    <script>
+    if (typeof Sentry !== 'undefined') {
+        Sentry.init({
+        dsn: "https://examplePublicKey@o0.ingest.sentry.io/0", // Subtitua pela sua DSN se criar conta no Sentry
+        environment: "production",
+        tracesSampleRate: 0.1,
+        // Garante conformidade com LGPD (nao envia dados pessoais de inputs)
+        beforeSend(event) {
+            if (event.request && event.request.data) {
+            delete event.request.data;
+            }
+            return event;
+        }
+        });
+    }
+    </script>
 
     <!-- Biblioteca de Ícones (Font Awesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
